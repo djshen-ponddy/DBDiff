@@ -6,6 +6,11 @@ php:
   - '5.6'
   - '7.0'
 
+addons:
+  code_climate:
+    repo_token:
+      secure: "IjaG1PBHnH5sCuZUo7VMUY9bKPXbJR20dj+8GetiLYh/HhylxVoG+V4n7Y6j8aMZ95ksixAC416sksy1pWQh6Bc/3LkiXIyjszFt86BoOhOlw6DBMnt5p4TtykHcGQJJ+ujUNMjeGP7yRrh48KXzs7cQuJRTaX/hyFsT+B1zX0/xqmjLYgQ6GPsnnXtl2x54pxIEPcWU67UgAkGqnm5rpC+p8daulb1ZkmAf5aUlakLszMvsI+04Lf+Ln1pqKkfnocP2GSC/VAql8cZegqyDOukQiQueBwdMMndH+ydPAcTE+HhfWRby0UR/p5Hq0InYIkGeX1LMJ1Roqlfk/zIMMkkqH+ydrWRH+zqToVQ6YXxGdnn6eSu20ZIu8H4DzLcDH8+LGjohCMHOhl0/Nd7qcekAXAP+f1we3cL5el66Mer9LLwtxLW7n9JmPw17wnOd3ELX931qLkLTgspIhvyp4tU7NTXSO98JDj4TDtUuEKw66rTO21ZzvOd6Pk+L54wAdSKxWEDG9CfcVh7NO+x64pkUXgoLULSVUIUnbi0dWi+XUJDiuFXXqrFbm69RdtNOVPHydnRmkxBZhybfYAliYveO1kZ7UtSBpp/9TYL6x5butMqmaJmsY0xP5rVJhe9+csX5RiQUObWm5KZphMojM8CzBCf0ZbDdCYTdo9YWFT4="
+
 services:
   - mysql
 
@@ -13,3 +18,6 @@ install:
   - composer install
 
 script: phpunit -c phpunit.xml --coverage-text
+
+after_script:
+  - vendor/bin/test-reporter
